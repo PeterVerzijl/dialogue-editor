@@ -1,0 +1,15 @@
+{
+    "name": "com.whoisnoahgames.DialogueEditor.Runtime",
+    "references": [
+        "com.peterverzijl.readonly-attribute.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

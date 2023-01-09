@@ -1,0 +1,30 @@
+{
+    "name": "com.whoisnoahgames.dialogue-editor",
+    "version": "0.9.0-preview",
+    "unity": "2017.1",
+    "displayName": "Dialogue Editor",
+    "description": "Node Editor for authoring dialogues.",
+    "keywords": [
+      "node",
+      "editor",
+      "conversation",
+      "dialogue"
+    ],
+    "category": "Node Editor",
+    "dependencies": {
+        "com.peterverzijl.readonly-attribute": "1.0.0"
+    },
+    "samples": [
+        {
+            "displayName": "Simple UI Sample",
+            "description": "Contains a sample UI-based implentation for outputting the dialogue.",
+            "path": "Samples~/simple-ui-sample"
+        }
+    ],
+    "author": {
+      "name": "Who is Noah Games",
+      "email": "peter@verzijl.com",
+      "url": "https://whoisnoahgames.itch.io/"
+    },
+    "type": "tool"
+  }

@@ -1,0 +1,70 @@
+﻿DialogueStartNode #title {
+	background-color: #3d964a;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+QuestConditionNode #title {
+	background-color: #3d964a;
+	overflow: hidden;
+	white-space: nowrap;
+}
+QuestConditionNode Label {
+	min-width: 0;
+	padding-right: 5px;
+	max-width: 200px;
+}
+
+UpdateQuestNode #title {
+	background-color: #3d964a;
+	overflow: hidden;
+	white-space: nowrap;
+}
+UpdateQuestNode Label {
+	min-width: 0;
+	padding-right: 5px;
+	max-width: 200px;
+}
+
+DialogueNode {
+	/* max-width: 200px;
+	flex-direction: column;*/
+}
+
+DialogueNode #title {
+	background-color: #3d6296;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+QuestionNode #title {
+	background-color: #3d6296;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+DialogueNode #unity-text-input {
+	white-space: Normal;
+}
+
+DialogueNode #node-contents .unity-object-field__label {
+	min-width: auto;
+}
+
+HasItemNode #node-contents .unity-object-field__label {
+	min-width: auto;
+}
+
+.node #node-contents {
+	background-color: rgba(63, 63, 63, 0.8);
+	max-width: 200px;
+}
+
+QuestionNode #unity-text-input {
+	white-space: Normal;
+	max-width: 200px;
+}
+
+Node Port {
+	height: auto;
+}

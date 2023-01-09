@@ -1,0 +1,17 @@
+{
+    "name": "com.whoisnoahgames.DialogueEditor.Editor",
+    "references": [
+        "com.whoisnoahgames.DialogueEditor.Runtime"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
