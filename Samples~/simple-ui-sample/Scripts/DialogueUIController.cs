@@ -21,9 +21,6 @@ public class DialogueUIController : MonoBehaviour {
     private void OnEnable() {
         DialogueTreeWalker.NodeHandlers.Add(typeof(DialogueNodeData), HandleDialogueNode);
         DialogueTreeWalker.NodeHandlers.Add(typeof(QuestionNodeData), HandleQuestionNode);
-        DialogueTreeWalker.NodeHandlers.Add(typeof(UpdateQuestNodeData), HandleUpdateQuestNode);
-        DialogueTreeWalker.NodeHandlers.Add(typeof(QuestConditionNodeData), HandleQuestConditionNode);
-        DialogueTreeWalker.NodeHandlers.Add(typeof(HasItemNodeData), HandleHasItemNode);
     }
 
     // Start is called before the first frame update
@@ -124,77 +121,6 @@ public class DialogueUIController : MonoBehaviour {
             .Where(nodeLink => nodeLink.Item2 == selectedButtonName)
             .Select(nodeLink => nodeLink.Item1)
             .ElementAtOrDefault(buttonPressed);
-        yield return nextNode;
-    }
-
-    /// <summary>
-    /// Handles the logic for the update quest node
-    /// </summary>
-    /// <param name="node"></param>
-    /// <param name="nextNodes"></param>
-    /// <returns></returns>
-    public IEnumerator<NodeData> HandleUpdateQuestNode(NodeData node, IEnumerable<(NodeData, string)> nodeLinks) {
-        UpdateQuestNodeData updateQuestNodeData = (UpdateQuestNodeData)node;
-
-        Quest[] allQuests = Resources.LoadAll<Quest>("");
-        Quest quest = allQuests.Where(q => q.Guid == updateQuestNodeData.questGuid).FirstOrDefault();
-
-        if (quest) {
-            Debug.Log($"[Quest] State updated: {quest.state} -> {updateQuestNodeData.newState}!");
-            Debug.Log($"[Quest] Result updated: {quest.result} -> {updateQuestNodeData.newResult}!");
-            quest.state = updateQuestNodeData.newState;
-            quest.result = updateQuestNodeData.newResult;
-        } else {
-            Debug.LogError($"[Quest] Fatal Errro: Unknown quest with guid {updateQuestNodeData.questGuid}!");
-        }
-
-        Debug.Log($"[Quest] Quest '{updateQuestNodeData.questGuid}' updated to state: '{updateQuestNodeData.newState}' and result: '{updateQuestNodeData.newResult}'!");
-
-        yield return nodeLinks.Select(nodeLink => nodeLink.Item1).FirstOrDefault();
-    }
-
-    /// <summary>
-    /// Handles the logic for the update quest node
-    /// </summary>
-    /// <param name="node"></param>
-    /// <param name="nextNodes"></param>
-    /// <returns></returns>
-    public IEnumerator<NodeData> HandleQuestConditionNode(NodeData node, IEnumerable<(NodeData, string)> nodeLinks) {
-        QuestConditionNodeData questConditionNodeData = (QuestConditionNodeData)node;
-
-        Quest[] allQuests = Resources.LoadAll<Quest>("");
-        Quest quest = allQuests.Where(q => q.Guid == questConditionNodeData.questGuid).FirstOrDefault();
-
-        Quest.State questState = (int)Quest.State.UnDiscovered;
-        if (quest) {
-            questState = quest.state;
-            Debug.Log($"[Quest] Quest state: {quest.state}");
-        } else {
-            Debug.LogError($"[Quest] Fatal Errro: Unknown quest with guid {questConditionNodeData.questGuid}!");
-        }
-
-        yield return nodeLinks
-            .Where(nodeLink => nodeLink.Item2 == questState.ToString())
-            .Select(nodeLink => nodeLink.Item1).FirstOrDefault();
-    }
-
-    /// <summary>
-    /// Handles the logic for the update quest node
-    /// </summary>
-    /// <param name="node"></param>
-    /// <param name="nextNodes"></param>
-    /// <returns></returns>
-    public IEnumerator<NodeData> HandleHasItemNode(NodeData node, IEnumerable<(NodeData, string)> nodeLinks) {
-        HasItemNodeData hasItemNodeData = (HasItemNodeData)node;
-
-        Debug.Log($"[Item] Has item '{hasItemNodeData.itemId}'!");
-        bool hasItem = InventoryBase.Instance.inventory.Any(item => item.itemID == hasItemNodeData.itemId);
-        string portName = hasItem ? "True" : "False";
-
-        NodeData nextNode = nodeLinks
-            .Where(nodeLink => nodeLink.Item2 == portName)
-            .Select(nodeLink => nodeLink.Item1)
-            .FirstOrDefault();
         yield return nextNode;
     }
 }

@@ -1,0 +1,90 @@
+{
+  "$type": "DialogueEditor.DialogueContainer, com.whoisnoahgames.DialogueEditor.Runtime",
+  "dialogueNodes": {
+    "$type": "DialogueEditor.NodeData[], com.whoisnoahgames.DialogueEditor.Runtime",
+    "$values": [
+      {
+        "$type": "DialogueEditor.DialogueStartNodeData, com.whoisnoahgames.DialogueEditor.Runtime",
+        "Guid": "ec151665-3d5a-449f-900a-4848b9c45855",
+        "position": {
+          "x": 100.0,
+          "y": 200.0
+        }
+      },
+      {
+        "$type": "DialogueEditor.DialogueNodeData, com.whoisnoahgames.DialogueEditor.Runtime",
+        "DialogueText": "Hallo, this is a test...",
+        "characterGuid": null,
+        "Guid": "6e5923ed-e13a-4454-8b77-946abde8f928",
+        "position": {
+          "x": 298.0,
+          "y": 217.0
+        }
+      },
+      {
+        "$type": "DialogueEditor.QuestionNodeData, com.whoisnoahgames.DialogueEditor.Runtime",
+        "Questions": {
+          "$type": "System.String[], mscorlib",
+          "$values": [
+            "What test?",
+            "Test succes!"
+          ]
+        },
+        "Guid": "2c0b7ba9-9440-4b38-a883-62ec1e61ac80",
+        "position": {
+          "x": 564.0,
+          "y": 230.0
+        }
+      },
+      {
+        "$type": "DialogueEditor.DialogueNodeData, com.whoisnoahgames.DialogueEditor.Runtime",
+        "DialogueText": "Huh?",
+        "characterGuid": null,
+        "Guid": "e088729e-dfa1-4058-b597-f9c7e219cf44",
+        "position": {
+          "x": 837.0,
+          "y": 159.0
+        }
+      },
+      {
+        "$type": "DialogueEditor.DialogueNodeData, com.whoisnoahgames.DialogueEditor.Runtime",
+        "DialogueText": "Thanks!",
+        "characterGuid": null,
+        "Guid": "dd16c16b-0ab8-4305-a571-e9874af34ab6",
+        "position": {
+          "x": 877.0,
+          "y": 412.0
+        }
+      }
+    ]
+  },
+  "nodeLinks": {
+    "$type": "DialogueEditor.NodeLinkData[], com.whoisnoahgames.DialogueEditor.Runtime",
+    "$values": [
+      {
+        "$type": "DialogueEditor.NodeLinkData, com.whoisnoahgames.DialogueEditor.Runtime",
+        "FromNodeGuid": "ec151665-3d5a-449f-900a-4848b9c45855",
+        "FromNodePortName": "Next",
+        "ToNodeGuid": "6e5923ed-e13a-4454-8b77-946abde8f928"
+      },
+      {
+        "$type": "DialogueEditor.NodeLinkData, com.whoisnoahgames.DialogueEditor.Runtime",
+        "FromNodeGuid": "6e5923ed-e13a-4454-8b77-946abde8f928",
+        "FromNodePortName": "Output",
+        "ToNodeGuid": "2c0b7ba9-9440-4b38-a883-62ec1e61ac80"
+      },
+      {
+        "$type": "DialogueEditor.NodeLinkData, com.whoisnoahgames.DialogueEditor.Runtime",
+        "FromNodeGuid": "2c0b7ba9-9440-4b38-a883-62ec1e61ac80",
+        "FromNodePortName": "What test?",
+        "ToNodeGuid": "e088729e-dfa1-4058-b597-f9c7e219cf44"
+      },
+      {
+        "$type": "DialogueEditor.NodeLinkData, com.whoisnoahgames.DialogueEditor.Runtime",
+        "FromNodeGuid": "2c0b7ba9-9440-4b38-a883-62ec1e61ac80",
+        "FromNodePortName": "Test succes!",
+        "ToNodeGuid": "dd16c16b-0ab8-4305-a571-e9874af34ab6"
+      }
+    ]
+  }
+}
